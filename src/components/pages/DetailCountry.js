@@ -66,7 +66,7 @@ function DetailCountry(props) {
               <div
                 className="circle circle-2"
                 style={{
-                  backgroundColor: bgColor.color
+                  backgroundColor: bgColor.bgLoad2
                 }}
               ></div>
             </div>

@@ -30,6 +30,8 @@ function Home(props) {
       .then(res => setDataCountries(res.data));
   }
 
+  console.log(bgColor)
+
   const preLoader = () => {
     if (loading == undefined) return
 
@@ -55,7 +57,7 @@ function Home(props) {
               <div
                 className="circle circle-2"
                 style={{
-                  backgroundColor: bgColor.color
+                  backgroundColor: bgColor.bgLoad2
                 }}
               ></div>
             </div>
