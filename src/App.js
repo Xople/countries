@@ -46,7 +46,10 @@ function App() {
       <Switch>
         <Route exact path="/" render={() => <Home bgColor={bgColor} />} />
 
-        <Route path="/:alphaCode" component={DetailCountry} />
+        <Route path="/:alphaCode">
+          <DetailCountry bgColor={bgColor} />
+        </Route>
+
       </Switch>
     </Router>
   );

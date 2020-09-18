@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Filsearch from '../layout/Filsearch';
 import Countries from '../layout/Countries';
 import axios from 'axios';
@@ -30,9 +30,46 @@ function Home(props) {
       .then(res => setDataCountries(res.data));
   }
 
+  const preLoader = () => {
+    if (loading == undefined) return
+
+    if (loading) {
+      return (
+        <div
+          className="wrap-loading d-flex align-items-center justify-content-center"
+          style={{
+            backgroundColor: bgColor.background,
+            color: bgColor.colorInput
+          }}
+        >
+          <div className="loading-section">
+            <div className="loading1">
+              <div
+                className="circle circle-1"
+                style={{
+                  backgroundColor: bgColor.color
+                }}
+              ></div>
+            </div>
+            <div className="loading2">
+              <div
+                className="circle circle-2"
+                style={{
+                  backgroundColor: bgColor.color
+                }}
+              ></div>
+            </div>
+          </div>
+        </div>
+      )
+    }
+
+  }
+
 
   return (
     <>
+      {preLoader()}
       <div
         className="content"
         style={

@@ -11,7 +11,7 @@ function Countries(props) {
         <div className="row wrap-countries">
           {countries.map((c, idx, arr) => {
             return (
-              <div className="col-md-3 mt-5" id={c.alpha3Code}>
+              <div className="col-md-3 mt-5" key={c.alpha3Code}>
                 <Link to={c.alpha3Code}>
                   <div
                     className="card-country w-100"
