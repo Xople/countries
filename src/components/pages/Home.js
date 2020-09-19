@@ -88,7 +88,7 @@ function Home(props) {
         }
       >
         <Filsearch filter={filterCountries} search={searchCountries} bgColor={bgColor} />
-        <Countries countries={dataCountries} bgColor={bgColor} />
+        <Countries countries={dataCountries} bgColor={bgColor} loading={loading} />
       </div>
     </>
   )
