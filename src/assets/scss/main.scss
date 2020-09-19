@@ -376,6 +376,12 @@ $white: hsl(0, 0%, 100%);
         b {
           font-family: 'Nunito Sans Bold';
         }
+
+        .right-desc {
+          @media #{$breakpoint-xs} {
+            margin-top: 2em;
+          }
+        }
       }
 
       .wrap-border-countries {
@@ -409,8 +415,9 @@ $white: hsl(0, 0%, 100%);
 
         @media #{$breakpoint-xs} {
           flex: 20%;
-          flex-direction: column;
           padding-bottom: 2em;
+          align-items: flex-start !important;
+          flex-direction: column;
         }
       }
 

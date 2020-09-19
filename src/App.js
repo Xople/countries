@@ -10,6 +10,8 @@ function App() {
   const [bgColor, setBgColor] = useState(
     {
       background: 'hsl(0, 0%, 100%)',
+      background2: 'hsl(0, 0%, 100%)',
+      bgLoad2: 'hsl(0, 0%, 52%)',
       colorInput: 'hsl(0, 0%, 52%)',
       color: 'hsl(209, 23%, 22%)'
     }
@@ -23,6 +25,7 @@ function App() {
         {
           background: 'hsl(207, 26%, 17%)',
           background2: 'hsl(209, 23%, 22%)',
+          bgLoad2: 'hsl(209, 23%, 22%)',
           colorInput: 'hsl(0, 0%, 98%)',
           color: 'hsl(0, 0%, 98%)'
         }
@@ -32,6 +35,7 @@ function App() {
         {
           background: 'hsl(0, 0%, 100%)',
           background2: 'hsl(0, 0%, 100%)',
+          bgLoad2: 'hsl(0, 0%, 52%)',
           colorInput: 'hsl(0, 0%, 52%)',
           color: 'hsl(209, 23%, 22%)'
         }

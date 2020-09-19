@@ -21,13 +21,21 @@ function Home(props) {
 
 
   const filterCountries = region => {
-    axios.get(`https://restcountries.eu/rest/v2/region/${region}`)
-      .then(res => setDataCountries(res.data));
+    setTimeout(() => setLoading(true), 0)
+    setTimeout(() => {
+      axios.get(`https://restcountries.eu/rest/v2/region/${region}`)
+        .then(res => setDataCountries(res.data))
+        .then(setLoading(false))
+    }, 500)
   }
 
   const searchCountries = keyword => {
-    axios.get(`https://restcountries.eu/rest/v2/name/${keyword}?fullText=false`)
-      .then(res => setDataCountries(res.data));
+    setTimeout(() => setLoading(true), 0)
+    setTimeout(() => {
+      axios.get(`https://restcountries.eu/rest/v2/name/${keyword}?fullText=false`)
+        .then(res => setDataCountries(res.data))
+        .then(setLoading(false))
+    }, 500)
   }
 
   const preLoader = () => {
@@ -55,7 +63,7 @@ function Home(props) {
               <div
                 className="circle circle-2"
                 style={{
-                  backgroundColor: bgColor.color
+                  backgroundColor: bgColor.bgLoad2
                 }}
               ></div>
             </div>
