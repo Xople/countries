@@ -117,7 +117,7 @@ function DetailCountry(props) {
                     <span><b>Capital: </b>{detailCountry.capital}</span>
                   </div>
                 </div>
-                <div className="col-md-6 col-12">
+                <div className="col-md-6 col-12 right-desc">
                   <div className="d-flex flex-column">
                     <span><b>Top Level Domain: </b>{detailCountry.topLevelDomain}</span>
                     <span><b>Currencies: </b>{detailCountryCurrencies.map(cc => cc.name)}</span>

@@ -16,7 +16,7 @@ function Filsearch(props) {
     <>
       <div className="filsearch">
         <div className="container">
-          <div className="row justify-content-between">
+          <div className="row w-100 m-0 justify-content-between">
             <div className="col-md-5 search d-flex align-items-center" style={
               {
                 backgroundColor: bgColor.background2,
@@ -35,7 +35,7 @@ function Filsearch(props) {
               </div>
             </div>
             <div
-              className="col-md-2 col-5 filter d-flex align-items-center justify-content-center"
+              className="col-md-2 col-7 filter d-flex align-items-center justify-content-center"
               style={
                 {
                   backgroundColor: bgColor.background2,

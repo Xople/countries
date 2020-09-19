@@ -21,13 +21,21 @@ function Home(props) {
 
 
   const filterCountries = region => {
-    axios.get(`https://restcountries.eu/rest/v2/region/${region}`)
-      .then(res => setDataCountries(res.data));
+    setTimeout(() => setLoading(true), 0)
+    setTimeout(() => {
+      axios.get(`https://restcountries.eu/rest/v2/region/${region}`)
+        .then(res => setDataCountries(res.data))
+        .then(setLoading(false))
+    }, 500)
   }
 
   const searchCountries = keyword => {
-    axios.get(`https://restcountries.eu/rest/v2/name/${keyword}?fullText=false`)
-      .then(res => setDataCountries(res.data));
+    setTimeout(() => setLoading(true), 0)
+    setTimeout(() => {
+      axios.get(`https://restcountries.eu/rest/v2/name/${keyword}?fullText=false`)
+        .then(res => setDataCountries(res.data))
+        .then(setLoading(false))
+    }, 500)
   }
 
   console.log(bgColor)
@@ -82,7 +90,7 @@ function Home(props) {
         }
       >
         <Filsearch filter={filterCountries} search={searchCountries} bgColor={bgColor} />
-        <Countries countries={dataCountries} bgColor={bgColor} />
+        <Countries countries={dataCountries} bgColor={bgColor} loading={loading} />
       </div>
     </>
   )

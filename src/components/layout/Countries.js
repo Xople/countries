@@ -3,10 +3,15 @@ import { Link } from 'react-router-dom';
 
 function Countries(props) {
 
-  const { countries, bgColor } = props
+  const { countries, bgColor, loading } = props
 
   return (
-    <div className="countries mt-5">
+    <div
+      className="countries mt-5"
+      style={
+        loading ? { height: '60vh', overflow: 'hidden', opacity: '0' } : { minHeight: '70vh', overflow: 'visible' }
+      }
+    >
       <div className="container">
         <div className="row wrap-countries">
           {countries.map((c, idx, arr) => {
