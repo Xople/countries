@@ -296,6 +296,46 @@ $white: hsl(0, 0%, 100%);
     text-decoration: none;
   }
 
+  .wrap-loader {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $white;
+    padding: .3em;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+
+    .loader {
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      -webkit-animation: spin 1s linear infinite;
+      animation: spin 1s linear infinite;
+    }
+
+    @-webkit-keyframes spin {
+      0% {
+        -webkit-transform: rotate(0deg);
+      }
+
+      100% {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  }
+
   .card-country {
     background-color: $white;
     box-shadow: 0 0 3px 1px rgba(43, 57, 69, 0.2);

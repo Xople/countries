@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {
-  BrowserRouter as Router,
   useParams,
-  useRouteMatch,
   Link
 } from "react-router-dom";
 import axios from 'axios';
@@ -121,7 +119,7 @@ function DetailCountry(props) {
                   <div className="d-flex flex-column">
                     <span><b>Top Level Domain: </b>{detailCountry.topLevelDomain}</span>
                     <span><b>Currencies: </b>{detailCountryCurrencies.map(cc => cc.name)}</span>
-                    <span><b>Languages: </b>{detailCountryLanguages.map((cl, idx, arr) => arr.length == 1 ? cl.name : idx >= 2 ? cl.name + '.' : cl.name + ', ')}</span>
+                    <span><b>Languages: </b>{detailCountryLanguages.map((cl, idx, arr) => arr.length === 1 ? cl.name : idx >= 2 ? cl.name + '.' : cl.name + ', ')}</span>
                   </div>
                 </div>
               </div>
@@ -129,10 +127,10 @@ function DetailCountry(props) {
                 <span>Border Countries</span>
                 <div className="border-countries">
                   {detailCountryBorders.map(cb => {
-                    const nameCountryBorders = coba.find(c => c.alpha3Code == cb)
-                    if (nameCountryBorders === undefined) return
-                    return (
-                      <Link to={`/${nameCountryBorders.alpha3Code}`}>
+                    const nameCountryBorders = coba.find(c => c.alpha3Code === cb)
+                    // if (nameCountryBorders === undefined) return(<></>)
+                    if (nameCountryBorders !== undefined) return (
+                      <Link to={`/${nameCountryBorders.alpha3Code}`} key={nameCountryBorders.callingCodes}>
                         <div
                           className="country d-flex align-items-center justify-content-center"
                           style={{

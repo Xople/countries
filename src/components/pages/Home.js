@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import Filsearch from '../layout/Filsearch';
 import Countries from '../layout/Countries';
 import axios from 'axios';
@@ -7,16 +7,33 @@ function Home(props) {
 
   const [dataCountries, setDataCountries] = useState([])
   const [loading, setLoading] = useState(false)
+  const [lengthCountries, setLengthCountries] = useState()
 
   const { bgColor } = props
+
+  const test = () => {
+    const getDataCountry = async (length) => {
+      // const resp = await axios.get('https://restcountries.eu/rest/v2/all')
+      // const newCountry = resp.data.slice(0, length).map((rd) => rd)
+      // setDataCountries([...dataCountries, ...newCountry])
+      setTimeout(() => {
+        setLengthCountries(prevState => prevState + length)
+      }, 2000)
+
+    }
+    getDataCountry(10)
+  }
 
   useEffect(() => {
     setTimeout(() => setLoading(true), 0)
     setTimeout(() => {
-      axios.get('https://restcountries.eu/rest/v2/all')
-        .then(res => setDataCountries(res.data))
-        .then(setLoading(false));
+      setLoading(false)
     }, 1500)
+    axios.get('https://restcountries.eu/rest/v2/all')
+      .then(res => {
+        setLengthCountries(10)
+        setDataCountries(res.data)
+      })
   }, []);
 
 
@@ -24,7 +41,10 @@ function Home(props) {
     setTimeout(() => setLoading(true), 0)
     setTimeout(() => {
       axios.get(`https://restcountries.eu/rest/v2/region/${region}`)
-        .then(res => setDataCountries(res.data))
+        .then(res => {
+          setLengthCountries(10)
+          setDataCountries(res.data)
+        })
         .then(setLoading(false))
     }, 500)
   }
@@ -33,13 +53,16 @@ function Home(props) {
     setTimeout(() => setLoading(true), 0)
     setTimeout(() => {
       axios.get(`https://restcountries.eu/rest/v2/name/${keyword}?fullText=false`)
-        .then(res => setDataCountries(res.data))
+        .then(res => {
+          setLengthCountries(10)
+          setDataCountries(res.data)
+        })
         .then(setLoading(false))
     }, 500)
   }
 
   const preLoader = () => {
-    if (loading == undefined) return
+    if (loading === undefined) return
 
     if (loading) {
       return (
@@ -88,7 +111,7 @@ function Home(props) {
         }
       >
         <Filsearch filter={filterCountries} search={searchCountries} bgColor={bgColor} />
-        <Countries countries={dataCountries} bgColor={bgColor} loading={loading} />
+        <Countries countries={dataCountries} bgColor={bgColor} loading={loading} scroll={test} lengthCountries={lengthCountries} />
       </div>
     </>
   )

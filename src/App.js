@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Home from './components/pages/Home';
 import Header from './components/layout/Header';
 import DetailCountry from './components/pages/DetailCountry';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './assets/scss/main.scss';
 
 function App() {
