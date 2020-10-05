@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import InfiniteScroll from 'react-infinite-scroller';
+import { v4 as uuidv4 } from 'uuid';
 
 function Countries(props) {
 
@@ -19,12 +20,12 @@ function Countries(props) {
           loadMore={scroll}
           hasMore={lengthCountries === countries.length ? false : true}
           loader={(
-            <div className="w-100 d-flex justify-content-center mt-5">
+            <div className="w-100 d-flex justify-content-center mt-5" key={uuidv4()}>
               <div className="wrap-loader">
                 <div
                   className="loader"
                   style={{
-                    border: `8px solid ${bgColor.background}`,
+                    border: `8px solid ${bgColor.background2}`,
                     borderTop: `8px solid ${bgColor.color}`
                   }}
                 ></div>
@@ -32,10 +33,10 @@ function Countries(props) {
             </div>
           )}
         >
-          <div className="row wrap-countries" key={0}>
+          <div className="row wrap-countries">
             {countries.slice(0, lengthCountries).map((c, idx, arr) => {
               return (
-                <div className="col-md-3 mt-5" key={c.callingCodes}>
+                <div className="col-md-3 mt-5" key={idx}>
                   <Link to={c.alpha3Code}>
                     <div
                       className="card-country w-100"
